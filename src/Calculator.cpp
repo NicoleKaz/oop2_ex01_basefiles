@@ -94,3 +94,5 @@ void Calculator::printMenu()
 	}
 	std::cout << "Enter command('help' for the list of available commands) : " << std::endl;
 }
+
+;;;;;;;;;;;;;;;;;;;
