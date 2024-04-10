@@ -16,10 +16,10 @@ public:
 	Calculator();
 	void start();
 	void printMenu();
-	void drawShape();
+	//void drawShape();
 
 private:
-	std::string m_userComand[USRCOM_SIZE] = { "cre", "en", "red" , "dup" , "stack" , "del", "help" , "exit"};
+	std::string m_userComand[USRCOM_SIZE] = { "cre", "en", "red", "draw", "dup", "stack", "del", "help", "exit"};
 	char m_shape;
 	int m_size;
 	int m_rechigh;

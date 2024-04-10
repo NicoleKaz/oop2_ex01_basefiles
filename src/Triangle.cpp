@@ -14,14 +14,20 @@ Triangle::~Triangle()
 {
 }
 
-void Triangle::enlarge(int num)
+void Triangle::enlarge(int enl_num)
 {
-
+    if (enl_num > 0 && enl_num < 11)
+    {
+        m_size = m_size * enl_num;
+    }
 }
 
-void Triangle::reduce(int num) 
+void Triangle::reduce(int red_num) 
 {
-
+    if (red_num > 0 && red_num < 11)
+    {
+        m_size = m_size / red_num;
+    }
 }
 
 void Triangle::draw()

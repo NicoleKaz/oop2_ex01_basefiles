@@ -4,7 +4,6 @@
 
 Calculator::Calculator()
 {
-
 }
 
 void Calculator::start()
@@ -36,22 +35,37 @@ void Calculator::start()
 			{
 			case 't': //triangel
 			{
-				m_shapeObject.push_back(std::make_shared<Triangle>("Triangle", m_size));
+				m_shapeObject.push_back(std::make_shared<Triangle>("t", m_size));
 				break;
 			}
 			case 'r': //rectangel
 			{
-				std::cin >> m_rechigh;
-				//m_shapeObject.push_back(std::make_shared<Rectangel>);
+				//m_shapeObject.push_back(std::make_shared<Rectangle>("r", m_size));
 				break;
 			}
 			case 's': //squer
 			{
-				//m_shapeObject.push_back(std::make_shared<Squer>);
+				//m_shapeObject.push_back(std::make_shared<Square>("s", m_size));
 				break;
 			}
 			}
-			printMenu();
+			break;
+		}
+		case EN:
+		{
+			std::cin >> m_location;
+			int enlarge_num;
+			std::cin >> enlarge_num;
+			m_shapeObject.at(m_location)->enlarge(enlarge_num);
+			break;
+		}
+		case RED:
+		{
+			std::cin >> m_location;
+			int reduce_num;
+			std::cin >> reduce_num;
+			m_shapeObject.at(m_location)->reduce(reduce_num);
+			break;
 		}
 		case DRAW:
 		{
@@ -59,21 +73,33 @@ void Calculator::start()
 			m_shapeObject.at(m_location)->draw();
 			break;
 		}
-		case EN:
-			;
-		case RED:
-			;
-
 		case DUP:
-			;
+		{
+			int shpe_to_dup, dup_num;
+			std::cin >> shpe_to_dup;
+			std::cin >> dup_num;
+			m_shapeObject.at(shpe_to_dup)->duplicate(dup_num);
+			//m_shapeObject.push_back(std::make_shared<Shape>);
+			break;
+		}
 		case STACK:
-			;
+		{
+			break;
+		}
 		case DEL:
-			;
+		{
+			std::cin >> m_location;
+			
+			break;
+		}
 		case HELP:
-			;
+		{
+			break;
+		}
 		case EXIT:
-			;
+		{
+			break;
+		}
 		}
 
 	}
