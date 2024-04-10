@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-class Triangel;
-
 class Shape
 {
 public:

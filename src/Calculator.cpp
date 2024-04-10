@@ -1,4 +1,6 @@
+#include "Triangle.h"
 #include "Calculator.h"
+#include <memory>
 
 Calculator::Calculator()
 {
@@ -11,43 +13,41 @@ void Calculator::start()
 	{
 		printMenu();
 		std::string userInput;
-		std::getline(std::cin, userInput);
+		std::cin >> userInput;
 
 		for (int i = CRE ; i <= EXIT; i++)
 		{
 			int result = m_userComand[i].compare(userInput);
 			if (result == 0)
 			{
-			    comand_num = i; 
+			    m_comandNum = i; 
 				break;
 			}
 		}
 
 		
-		switch(comand_num)
+		switch(m_comandNum)
 		{
 		case CRE:
 		{
 			std::cin >> m_shape;
 			std::cin >> m_size;
-
 			switch (m_shape)
 			{
 			case 't': //triangel
 			{
-				m_shapeObject.push_back(std::make_shared<Triangel>);
-				//m_shapeObject.back();
+				m_shapeObject.push_back(std::make_shared<Triangle>("Triangle", m_size));
 				break;
 			}
 			case 'r': //rectangel
 			{
 				std::cin >> m_rechigh;
-				m_shapeObject.push_back(std::make_shared<Rectangel>);
+				//m_shapeObject.push_back(std::make_shared<Rectangel>);
 				break;
 			}
 			case 's': //squer
 			{
-				m_shapeObject.push_back(std::make_shared<Squer>);
+				//m_shapeObject.push_back(std::make_shared<Squer>);
 				break;
 			}
 			}
@@ -57,6 +57,7 @@ void Calculator::start()
 		{
 			std::cin >> m_location;
 			m_shapeObject.at(m_location)->draw();
+			break;
 		}
 		case EN:
 			;

@@ -12,7 +12,7 @@ void Shape::printSize() const
 
 void Shape::printName() const
 {
-	std::cout << std::string() << " ";
+	std::cout << m_name << " ";
 }
 
 

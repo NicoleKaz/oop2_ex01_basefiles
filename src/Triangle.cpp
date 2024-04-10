@@ -64,7 +64,7 @@ void Triangle::deleteShape(int num)
 
 std::string Triangle::getName()
 {
-	return std::string(m_name) ;
+	return m_name ;
 }
 
 int Triangle::getShapeSize()

@@ -3,7 +3,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 #include "Shape.h"
+#include "Triangle.h"
 
 const int USRCOM_SIZE = 9;
 enum userComand{ CRE, EN, RED, DRAW, DUP, STACK, DEL, HELP, EXIT };
@@ -22,7 +24,7 @@ private:
 	int m_size;
 	int m_rechigh;
 	int m_location;
-	int comand_num;
+	int m_comandNum;
 
 	std::vector <std::shared_ptr <Shape> > m_shapeObject;
 	

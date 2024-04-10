@@ -9,12 +9,12 @@ public:
 	void Operation(std::string str);
 	~Triangle();
 
-    void enlarge(int num) = 0;
-	void reduce(int num) = 0;
-	void draw() = 0;
-	void duplicate(int num) = 0;
-	void stack(int num1, int num2) = 0;
-	void deleteShape(int num) = 0;
+    void enlarge(int num) ;
+	void reduce(int num) ;
+	void draw() ;
+	void duplicate(int num) ;
+	void stack(int num1, int num2);
+	void deleteShape(int num) ;
 
 	std::string getName();
 	int getShapeSize();
