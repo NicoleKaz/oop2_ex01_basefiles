@@ -63,11 +63,6 @@ void Triangle::stack(int num1, int num2)
 
 }
 
-void Triangle::deleteShape(int num)
-{
-
-}
-
 std::string Triangle::getName()
 {
 	return m_name ;
@@ -76,4 +71,9 @@ std::string Triangle::getName()
 int Triangle::getShapeSize()
 {
 	return m_size; 
+}
+
+char Triangle::getChar()
+{
+    return 't';
 }

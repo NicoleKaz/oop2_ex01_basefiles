@@ -6,6 +6,9 @@
 #include <memory>
 #include "Shape.h"
 #include "Triangle.h"
+#include "Square.h"
+#include "Rectangle.h"
+
 
 const int USRCOM_SIZE = 9;
 enum userComand{ CRE, EN, RED, DRAW, DUP, STACK, DEL, HELP, EXIT };
@@ -16,7 +19,7 @@ public:
 	Calculator();
 	void start();
 	void printMenu();
-	//void drawShape();
+	void printHelp();
 
 private:
 	std::string m_userComand[USRCOM_SIZE] = { "cre", "en", "red", "draw", "dup", "stack", "del", "help", "exit"};

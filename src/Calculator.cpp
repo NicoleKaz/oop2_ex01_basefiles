@@ -1,6 +1,5 @@
-#include "Triangle.h"
 #include "Calculator.h"
-#include <memory>
+
 
 Calculator::Calculator()
 {
@@ -40,12 +39,14 @@ void Calculator::start()
 			}
 			case 'r': //rectangel
 			{
-				//m_shapeObject.push_back(std::make_shared<Rectangle>("r", m_size));
+				int rec_height;
+				std::cin >> rec_height;
+				m_shapeObject.push_back(std::make_shared<Rectangle>("r", m_size, rec_height));
 				break;
 			}
 			case 's': //squer
 			{
-				//m_shapeObject.push_back(std::make_shared<Square>("s", m_size));
+				m_shapeObject.push_back(std::make_shared<Square>("s", m_size));
 				break;
 			}
 			}
@@ -78,8 +79,35 @@ void Calculator::start()
 			int shpe_to_dup, dup_num;
 			std::cin >> shpe_to_dup;
 			std::cin >> dup_num;
-			m_shapeObject.at(shpe_to_dup)->duplicate(dup_num);
-			//m_shapeObject.push_back(std::make_shared<Shape>);
+			if (dup_num <= 0)
+			{
+				std::cout << "Error in duplication number, needs to be positive!\n";
+			}
+			//m_shapeObject.at(shpe_to_dup)->duplicate(dup_num);
+			char c = m_shapeObject.at(shpe_to_dup)->getChar();
+			m_shapeObject.at(shpe_to_dup)->getShapeSize();
+			for (int i = 0; i < dup_num; i++)
+			{
+				switch (c)
+				{
+				case 't': //triangel
+				{
+					m_shapeObject.push_back(std::make_shared<Triangle>("t", m_size));
+					break;
+				}
+				case 'r': //rectangel
+				{
+					//m_shapeObject.at(shpe_to_dup)->Rectangle.getRecH();
+					//m_shapeObject.push_back(std::make_shared<Rectangle>("r", m_size, rec_height));
+					break;
+				}
+				case 's': //squer
+				{
+					m_shapeObject.push_back(std::make_shared<Square>("s", m_size));
+					break;
+				}
+				}
+			}
 			break;
 		}
 		case STACK:
@@ -89,20 +117,47 @@ void Calculator::start()
 		case DEL:
 		{
 			std::cin >> m_location;
-			
+			if (m_location >= 0 && m_location < m_shapeObject.size())
+			{
+				m_shapeObject.erase(m_shapeObject.begin() + m_location);
+			}
 			break;
 		}
 		case HELP:
 		{
+			printHelp();
 			break;
 		}
 		case EXIT:
 		{
-			break;
+			std::cout << "Goodbye\n"; 
+			exit(EXIT_SUCCESS); 
 		}
 		}
 
 	}
+}
+
+void Calculator::printHelp()
+{
+
+	std::cout << "The available commands are :\n"
+		"*cre(ate shape) < t - triangle | r - rectangle | s - square > x[y] -\n"
+		"create new shape according to the chosen letter, with the given\n"
+		"size(s) (y must be given only for a rectangle)\n"
+		"* en(large) num n - enlarge the size of the sides of shape #num by n\n"
+		"(1 - 10)\n"
+		"* red(uce) num n - reduce the size of the sides of shape #num by n\n"
+		"(1 - 10)\n"
+		"* draw num - draw shape #num\n"
+		"* dup(licate) num n - create a new shape which is a n times\n"
+		"(vertical) duplication of shape #num\n"
+		"* stack num1 num2 - create a new shape by stacking shape number #num1\n"
+		"over shape number #num2\n"
+		"* del(ete) num - delete shape #num from the shape list\n"
+		"* help - print this command list\n"
+		"* exit - exit the program\n" << std::endl; 
+
 }
 
 void Calculator::printMenu()

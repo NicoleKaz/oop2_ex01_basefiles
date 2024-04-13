@@ -16,10 +16,9 @@ public:
 	virtual void draw() = 0;
 	virtual void duplicate(int num) = 0;
 	virtual void stack(int num1, int num2) = 0;
-	virtual void deleteShape(int num) = 0;
-
-	
-
+	virtual std::string getName() = 0;
+	virtual int getShapeSize() = 0;
+	virtual char getChar() = 0;
 
 protected:
 	std::string(m_name);
