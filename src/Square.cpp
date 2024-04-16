@@ -6,12 +6,9 @@ Square::Square(std::string, int size)
     m_size = size;
 }
 
-void Square::Operation(std::string str)
+void Square::print()
 {
-}
-
-Square::~Square()
-{
+    std::cout << m_name << "(" << m_size << ")";
 }
 
 void Square::enlarge(int enl_num)
@@ -55,16 +52,6 @@ void Square::draw()
 
 }
 
-void Square::duplicate(int num)
-{
-
-}
-
-void Square::stack(int num1, int num2)
-{
-
-}
-
 std::string Square::getName()
 {
     return m_name;
@@ -73,9 +60,4 @@ std::string Square::getName()
 int Square::getShapeSize()
 {
     return m_size;
-}
-
-char Square::getChar()
-{
-    return 's';
 }

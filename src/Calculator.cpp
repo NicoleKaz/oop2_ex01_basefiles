@@ -13,18 +13,18 @@ void Calculator::start()
 		std::string userInput;
 		std::cin >> userInput;
 
-		for (int i = CRE ; i <= EXIT; i++)
+		for (int i = CRE; i <= EXIT; i++)
 		{
 			int result = m_userComand[i].compare(userInput);
 			if (result == 0)
 			{
-			    m_comandNum = i; 
+				m_comandNum = i;
 				break;
 			}
 		}
 
-		
-		switch(m_comandNum)
+
+		switch (m_comandNum)
 		{
 		case CRE:
 		{
@@ -83,35 +83,20 @@ void Calculator::start()
 			{
 				std::cout << "Error in duplication number, needs to be positive!\n";
 			}
-			//m_shapeObject.at(shpe_to_dup)->duplicate(dup_num);
-			char c = m_shapeObject.at(shpe_to_dup)->getChar();
-			m_shapeObject.at(shpe_to_dup)->getShapeSize();
-			for (int i = 0; i < dup_num; i++)
-			{
-				switch (c)
-				{
-				case 't': //triangel
-				{
-					m_shapeObject.push_back(std::make_shared<Triangle>("t", m_size));
-					break;
-				}
-				case 'r': //rectangel
-				{
-					//m_shapeObject.at(shpe_to_dup)->Rectangle.getRecH();
-					//m_shapeObject.push_back(std::make_shared<Rectangle>("r", m_size, rec_height));
-					break;
-				}
-				case 's': //squer
-				{
-					m_shapeObject.push_back(std::make_shared<Square>("s", m_size));
-					break;
-				}
-				}
-			}
+			///////////////////////////////////////////
+			std::shared_ptr <Shape> ptr = m_shapeObject[shpe_to_dup];
+			m_shapeObject.push_back(std::make_shared<Dup>(ptr, dup_num));
 			break;
 		}
 		case STACK:
 		{
+			int shape1, shape2;
+			std::cin >> shape1;
+			std::cin >> shape2;
+			///////////////////////////////////////////
+			std::shared_ptr <Shape> ptr1 = m_shapeObject[shape1];
+			std::shared_ptr <Shape> ptr2 = m_shapeObject[shape2];
+			m_shapeObject.push_back(std::make_shared<Stack>(ptr1, ptr2));
 			break;
 		}
 		case DEL:
@@ -130,8 +115,8 @@ void Calculator::start()
 		}
 		case EXIT:
 		{
-			std::cout << "Goodbye\n"; 
-			exit(EXIT_SUCCESS); 
+			std::cout << "Goodbye\n";
+			exit(EXIT_SUCCESS);
 		}
 		}
 
@@ -156,7 +141,7 @@ void Calculator::printHelp()
 		"over shape number #num2\n"
 		"* del(ete) num - delete shape #num from the shape list\n"
 		"* help - print this command list\n"
-		"* exit - exit the program\n" << std::endl; 
+		"* exit - exit the program\n" << std::endl;
 
 }
 
@@ -170,14 +155,14 @@ void Calculator::printMenu()
 	else
 	{
 		std::cout << "List of the available shapes:" << std::endl;
-		int index = 0; 
+		int index = 0;
 		//print what the vector shpes countain
 		for (auto& shape : m_shapeObject)
 		{
-			std::cout << index << ". "; 
+			std::cout << index << ". ";
 			index++;
-			shape->printName();
-			shape->printSize();
+			shape->print();
+			std::cout << std::endl;
 		}
 	}
 	std::cout << "Enter command('help' for the list of available commands) : " << std::endl;

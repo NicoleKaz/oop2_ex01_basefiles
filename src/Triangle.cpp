@@ -2,16 +2,13 @@
 
 Triangle::Triangle(std::string, int size)
 {
-	m_name = "Triangle";
-	m_size = size;
+    m_name = "Triangle";
+    m_size = size;
 }
 
-void Triangle::Operation(std::string str)
+void Triangle::print()
 {
-}
-
-Triangle::~Triangle()
-{
+    std::cout << m_name << "(" << m_size << ")";
 }
 
 void Triangle::enlarge(int enl_num)
@@ -22,7 +19,7 @@ void Triangle::enlarge(int enl_num)
     }
 }
 
-void Triangle::reduce(int red_num) 
+void Triangle::reduce(int red_num)
 {
     if (red_num > 0 && red_num < 11)
     {
@@ -33,16 +30,16 @@ void Triangle::reduce(int red_num)
 void Triangle::draw()
 {
     // Printing the equilateral triangle without asterisks inside
-    for (int i = 1; i <= m_size; ++i) 
+    for (int i = 1; i <= m_size; ++i)
     {
         // Printing spaces to align the triangle correctly
-        for (int j = 1; j <= m_size - i; ++j) 
+        for (int j = 1; j <= m_size - i; ++j)
         {
             std::cout << " ";
         }
         // Printing asterisks only for the first and last rows,
         // otherwise printing asterisk only for the first and last columns
-        for (int k = 1; k <= i; ++k) 
+        for (int k = 1; k <= i; ++k)
         {
             if (k == 1 || k == i || i == m_size)
                 std::cout << "* ";
@@ -53,27 +50,13 @@ void Triangle::draw()
     }
 }
 
-void Triangle::duplicate(int num)
-{
-
-}
-
-void Triangle::stack(int num1, int num2)
-{
-
-}
-
 std::string Triangle::getName()
 {
-	return m_name ;
+    return m_name;
 }
 
 int Triangle::getShapeSize()
 {
-	return m_size; 
+    return m_size;
 }
 
-char Triangle::getChar()
-{
-    return 't';
-}

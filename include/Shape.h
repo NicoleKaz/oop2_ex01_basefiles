@@ -5,23 +5,14 @@
 class Shape
 {
 public:
-	Shape();
-	//virtual ~Shape() = default;
-	void printName() const;
-	void printSize() const;
-	virtual void Operation(std::string str) = 0;
-	
-	virtual void enlarge(int num) = 0;
-	virtual void reduce(int num) = 0;
+	virtual void print() = 0;
+	virtual void enlarge(int) = 0;
+	virtual void reduce(int) = 0;
 	virtual void draw() = 0;
-	virtual void duplicate(int num) = 0;
-	virtual void stack(int num1, int num2) = 0;
 	virtual std::string getName() = 0;
 	virtual int getShapeSize() = 0;
-	virtual char getChar() = 0;
 
 protected:
 	std::string(m_name);
-	int m_size; 
 
 };

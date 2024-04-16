@@ -7,12 +7,9 @@ Rectangle::Rectangle(std::string, int size, int rec_height)
     m_height = rec_height;
 }
 
-void Rectangle::Operation(std::string str)
+void Rectangle::print()
 {
-}
-
-Rectangle::~Rectangle()
-{
+    std::cout << m_name << "(w:" << m_size << "," << "h:" << m_height << ")";
 }
 
 void Rectangle::enlarge(int enl_num)
@@ -58,16 +55,6 @@ void Rectangle::draw()
 
 }
 
-void Rectangle::duplicate(int num)
-{
-
-}
-
-void Rectangle::stack(int num1, int num2)
-{
-
-}
-
 std::string Rectangle::getName()
 {
     return m_name;
@@ -76,12 +63,7 @@ std::string Rectangle::getName()
 int Rectangle::getShapeSize()
 {
     return m_size;
-} 
-
-char Rectangle::getChar()
-{
-    return 'r';
-} 
+}
 
 int Rectangle::getRecH()
 {
