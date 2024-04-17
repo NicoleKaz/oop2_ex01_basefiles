@@ -2,22 +2,24 @@
 #include <iostream>
 #include <string>
 
+
+// Abstract base class for shapes
 class Shape
 {
 public:
-	virtual void print() = 0;
-	virtual void printComplex(double) = 0; 
+	// Virtual destructor
+	virtual ~Shape() {}
+	// Virtual functions to be implemented by derived classes
+	virtual void print(double) = 0; 
 	virtual void enlarge(int) = 0;
 	virtual void reduce(int) = 0;
 	virtual void draw(double) = 0;
-	virtual double getFactor() = 0;
-
-
-	virtual std::string getName() = 0; //const
-	virtual double getShapeSize() = 0;//const
+	virtual double getFactor()const = 0;
+	virtual std::string getName() const = 0; 
+	virtual double getShapeSize() const = 0;
 	
 
 protected:
-	std::string(m_name);
+	std::string(m_name);// Name of the shape
 
 };

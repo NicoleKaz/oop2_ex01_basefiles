@@ -12,9 +12,10 @@
 #include "Stack.h"
 
 
+//enum for the user commands 
+const int USRCOM_SIZE = 10;
+enum userComand { CRE, EN, RED, DRAW, DUP, STACK, DEL, HELP, EXIT, BAD };
 
-const int USRCOM_SIZE = 9;
-enum userComand { CRE, EN, RED, DRAW, DUP, STACK, DEL, HELP, EXIT };
 
 class Calculator
 {
@@ -24,6 +25,7 @@ public:
 	void printMenu();
 	void printHelp();
 
+
 private:
 	std::string m_userComand[USRCOM_SIZE] = { "cre", "en", "red", "draw", "dup", "stack", "del", "help", "exit" };
 	char m_shape;
@@ -31,7 +33,6 @@ private:
 	int m_rechigh;
 	int m_location;
 	int m_comandNum;
-
 	std::vector <std::shared_ptr <Shape> > m_shapeObject;
 
 };

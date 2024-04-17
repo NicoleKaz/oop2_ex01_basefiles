@@ -1,22 +1,23 @@
 #include "Triangle.h"
 
+// Constructor for Triangle class
 Triangle::Triangle(std::string, double size)
 {
     m_name = "Triangle";
     m_size = size;
 }
 
-void Triangle::print()
+// Print function for Triangle class
+// Inputs: Factor to scale the printed size (factor)
+// Outputs: Prints a representation of the triangle with scaled dimensions
+void Triangle::print(double factor)
 {
-    std::cout << m_name << "(" << m_size << ")";
+    std::cout << m_name << "(" << m_size * factor << ")";
 }
 
-void Triangle::printComplex(double factor)
-{
-    double new_size = m_size * factor;
-    std::cout << m_name << "(" << new_size  << ")";
-}
-
+// Enlarge function for Triangle class
+// Inputs: Number by which to enlarge the triangle (enl_num)
+// Actions: Enlarges the triangle by scaling its size by the specified factor
 void Triangle::enlarge(int enl_num)
 {
     if (enl_num > 0 && enl_num < 11)
@@ -25,6 +26,9 @@ void Triangle::enlarge(int enl_num)
     }
 }
 
+// Reduce function for Triangle class
+// Inputs: Number by which to reduce the triangle (red_num)
+// Actions: Reduces the triangle by scaling its size by the specified factor
 void Triangle::reduce(int red_num)
 {
     if (red_num > 0 && red_num < 11)
@@ -33,13 +37,16 @@ void Triangle::reduce(int red_num)
     }
 }
 
+// Draw function for Triangle class
+// Inputs: Factor to scale the drawn triangle (factor)
+// Actions: Draws the equilateral triangle with scaled dimensions
 void Triangle::draw(double factor)
 {
     // Printing the equilateral triangle without asterisks inside
-    for (int i = 1; i <= m_size * factor; ++i)
+    for (int i = 1; i <= round(m_size * factor); ++i)
     {
         // Printing spaces to align the triangle correctly
-        for (int j = 1; j <= m_size * factor - i; ++j)
+        for (int j = 1; j <= round(m_size * factor - i); ++j)
         {
             std::cout << " ";
         }
@@ -47,7 +54,7 @@ void Triangle::draw(double factor)
         // otherwise printing asterisk only for the first and last columns
         for (int k = 1; k <= i; ++k)
         {
-            if (k == 1 || k == i || i == m_size * factor)
+            if (k == 1 || k == i || i == round(m_size * factor))
                 std::cout << "* ";
             else
                 std::cout << "  ";
@@ -56,17 +63,23 @@ void Triangle::draw(double factor)
     }
 }
 
-std::string Triangle::getName()
+// Get name function for Triangle class
+// Outputs: Returns the name of the triangle (m_name)
+std::string Triangle::getName()const
 {
     return m_name;
 }
 
-double Triangle::getShapeSize()
+// Get shape size function for Triangle class
+// Outputs: Returns the size of the triangle (m_size)
+double Triangle::getShapeSize()const
 {
     return m_size;
 }
 
-double Triangle::getFactor()
+// Get factor function for Triangle class
+// Outputs: Returns the enlargement factor for the triangle (m_factor) 
+double Triangle::getFactor()const
 {
     return m_factor;
 }
