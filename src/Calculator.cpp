@@ -77,7 +77,7 @@ void Calculator::start()
 		case DRAW:
 		{
 			std::cin >> m_location;
-			m_shapeObject.at(m_location)->draw();
+			m_shapeObject.at(m_location)->draw(m_shapeObject.at(m_location)->getFactor());
 			break;
 		}
 		case DUP:

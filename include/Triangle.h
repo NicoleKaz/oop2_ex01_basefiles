@@ -4,18 +4,22 @@
 class Triangle :public Shape
 {
 public:
-	Triangle(std::string, int);
+	Triangle(std::string, double);
 
 	void print();
 	void printComplex(double);
 	void enlarge(int num);
 	void reduce(int num);
-	void draw();
+	void draw(double);
 	std::string getName();
-	int getShapeSize();
+	double getShapeSize();
+	double getFactor();
+
 	
 
 private:
-	int m_size; 
+	double m_size; 
+	double m_factor = 1;
+
 };
 

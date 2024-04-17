@@ -22,20 +22,20 @@ void Stack::printComplex(double)
 	m_shape_ptr2->printComplex(m_factor);
 }
 
-void Stack::draw()
+void Stack::draw(double m_factor)
 {
-	m_shape_ptr1->draw();
-	m_shape_ptr2->draw();
+	m_shape_ptr1->draw(m_factor);
+	m_shape_ptr2->draw(m_factor);
 }
 
 void Stack::enlarge(int num)
 {
-	m_factor =  num;
+	m_factor *=  num;
 }
 
 void Stack::reduce(int num)
 {
-	m_factor = num;
+	m_factor /= num;
 }
 
 std::string Stack::getName()
@@ -43,10 +43,16 @@ std::string Stack::getName()
 	return std::string();
 }
 
-int Stack::getShapeSize()
+double Stack::getShapeSize()
 {
 	return 0;
 }
+
+double Stack::getFactor()
+{
+	return m_factor;
+}
+
 
 
 

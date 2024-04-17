@@ -4,19 +4,22 @@
 class Square :public Shape
 {
 public:
-	Square(std::string, int);
+	Square(std::string, double);
 
 	void print();
 	void printComplex(double);
 	void enlarge(int num);
 	void reduce(int num);
-	void draw();
+	void draw(double m_factor);
 	std::string getName();
-	int getShapeSize();
+	double getShapeSize();
+	double getFactor();
+
 	
 
 private:
-	int m_size;
-	int m_height;
+	double m_size;
+	double m_factor = 1;
+
 };
 

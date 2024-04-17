@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-Rectangle::Rectangle(std::string, int size, int rec_height)
+Rectangle::Rectangle(std::string, double size, double rec_height)
 {
     m_name = "Rectangle";
     m_size = size;
@@ -9,7 +9,7 @@ Rectangle::Rectangle(std::string, int size, int rec_height)
 
 void Rectangle::print()
 {
-    std::cout << m_name << "(w:" << m_size << "," << "h:" << m_height << ")";
+    std::cout << m_name << "(w:" << m_size  << "," << "h:" << m_height << ")";
 }
 
 void Rectangle::printComplex(double factor)
@@ -35,10 +35,10 @@ void Rectangle::reduce(int red_num)
     }
 }
 
-void Rectangle::draw()
+void Rectangle::draw(double factor)
 {
     // Printing the top row
-    for (int i = 0; i < m_size; ++i) {
+    for (int i = 0; i < m_size*factor; ++i) {
         std::cout << "* ";
     }
     std::cout << std::endl;
@@ -53,7 +53,7 @@ void Rectangle::draw()
     }
 
     // Printing the bottom row
-    for (int i = 0; i < m_size; ++i) {
+    for (int i = 0; i < m_size * factor; ++i) {
         std::cout << "* ";
     }
     std::cout << std::endl;
@@ -65,9 +65,14 @@ std::string Rectangle::getName()
     return m_name;
 }
 
-int Rectangle::getShapeSize()
+double Rectangle::getShapeSize()
 {
     return m_size;
+}
+
+double Rectangle::getFactor()
+{
+    return m_factor;
 }
 
 int Rectangle::getShapeHeight()

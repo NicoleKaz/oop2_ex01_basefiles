@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(std::string, int size)
+Triangle::Triangle(std::string, double size)
 {
     m_name = "Triangle";
     m_size = size;
@@ -13,8 +13,7 @@ void Triangle::print()
 
 void Triangle::printComplex(double factor)
 {
-    int new_size = m_size * factor;
-    std::cout << factor << " !!! ";
+    double new_size = m_size * factor;
     std::cout << m_name << "(" << new_size  << ")";
 }
 
@@ -34,13 +33,13 @@ void Triangle::reduce(int red_num)
     }
 }
 
-void Triangle::draw()
+void Triangle::draw(double factor)
 {
     // Printing the equilateral triangle without asterisks inside
-    for (int i = 1; i <= m_size; ++i)
+    for (int i = 1; i <= m_size * factor; ++i)
     {
         // Printing spaces to align the triangle correctly
-        for (int j = 1; j <= m_size - i; ++j)
+        for (int j = 1; j <= m_size * factor - i; ++j)
         {
             std::cout << " ";
         }
@@ -48,7 +47,7 @@ void Triangle::draw()
         // otherwise printing asterisk only for the first and last columns
         for (int k = 1; k <= i; ++k)
         {
-            if (k == 1 || k == i || i == m_size)
+            if (k == 1 || k == i || i == m_size * factor)
                 std::cout << "* ";
             else
                 std::cout << "  ";
@@ -62,9 +61,14 @@ std::string Triangle::getName()
     return m_name;
 }
 
-int Triangle::getShapeSize()
+double Triangle::getShapeSize()
 {
     return m_size;
+}
+
+double Triangle::getFactor()
+{
+    return m_factor;
 }
 
 

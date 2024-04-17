@@ -3,12 +3,14 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <cmath>
 #include "Shape.h"
 #include "Triangle.h"
 #include "Square.h"
 #include "Rectangle.h"
 #include "Dup.h"
 #include "Stack.h"
+
 
 
 const int USRCOM_SIZE = 9;

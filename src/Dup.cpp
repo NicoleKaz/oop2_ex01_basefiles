@@ -22,24 +22,24 @@ void Dup::printComplex(double m_factor)
 
 }
 
-void Dup::draw()
+void Dup::draw(double m_factor)
 {
 	for (int i = 0; i < m_times; i++)
 	{
-		m_shape_ptr->draw();
+		m_shape_ptr->draw(m_factor);
 	}
 }
 
 void Dup::enlarge(int num)
 {
 
-	m_factor = num; 
+	m_factor *= num; 
 
 }
 
 void Dup::reduce(int num)
 {
-	m_factor = num;
+	m_factor /= num;
 }
 
 std::string Dup::getName()
@@ -47,8 +47,13 @@ std::string Dup::getName()
 	return std::string();
 }
 
-int Dup::getShapeSize()
+double Dup::getShapeSize()
 {
 	return m_times;
+}
+
+double Dup::getFactor()
+{
+	return m_factor;
 }
 

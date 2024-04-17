@@ -11,11 +11,13 @@ public:
 
 	void print();
 	void printComplex(double);
-	void draw();
+	void draw(double);
 	void enlarge(int num);
 	void reduce(int num);
 	std::string getName();
-	int getShapeSize();
+	double getShapeSize();
+	double getFactor();
+
 
 
 private:

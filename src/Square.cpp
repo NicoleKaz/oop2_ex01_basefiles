@@ -1,10 +1,9 @@
 #include "Square.h"
 
-Square::Square(std::string, int size)
+Square::Square(std::string, double size)
 {
     m_name = "Square";
     m_size = size;
-    m_height = 0; 
 }
 
 void Square::print()
@@ -33,25 +32,25 @@ void Square::reduce(int red_num)
     }
 }
 
-void Square::draw()
+void Square::draw(double factor)
 {
     // Printing the top row
-    for (int i = 0; i < m_size; ++i) {
+    for (int i = 0; i < m_size * factor; ++i) {
         std::cout << "* ";
     }
     std::cout << std::endl;
 
     // Printing the middle rows
-    for (int i = 0; i < m_size - 2; ++i) {
+    for (int i = 0; i < m_size * factor - 2; ++i) {
         std::cout << "*";
-        for (int j = 0; j < m_size * 2 - 3; ++j) {
+        for (int j = 0; j < m_size * factor * 2 - 3; ++j) {
             std::cout << " ";
         }
         std::cout << "*" << std::endl;
     }
 
     // Printing the bottom row
-    for (int i = 0; i < m_size; ++i) {
+    for (int i = 0; i < m_size * factor; ++i) {
         std::cout << "* ";
     }
     std::cout << std::endl;
@@ -63,7 +62,12 @@ std::string Square::getName()
     return m_name;
 }
 
-int Square::getShapeSize()
+double Square::getShapeSize()
 {
     return m_size;
+}
+
+double Square::getFactor()
+{
+    return m_factor;
 }
