@@ -11,6 +11,13 @@ void Triangle::print()
     std::cout << m_name << "(" << m_size << ")";
 }
 
+void Triangle::printComplex(double factor)
+{
+    int new_size = m_size * factor;
+    std::cout << factor << " !!! ";
+    std::cout << m_name << "(" << new_size  << ")";
+}
+
 void Triangle::enlarge(int enl_num)
 {
     if (enl_num > 0 && enl_num < 11)
@@ -59,4 +66,6 @@ int Triangle::getShapeSize()
 {
     return m_size;
 }
+
+
 

@@ -57,7 +57,10 @@ void Calculator::start()
 			std::cin >> m_location;
 			int enlarge_num;
 			std::cin >> enlarge_num;
-			m_shapeObject.at(m_location)->enlarge(enlarge_num);
+			if (enlarge_num > 0 && enlarge_num < 11)
+			{
+				m_shapeObject.at(m_location)->enlarge(enlarge_num);
+			}
 			break;
 		}
 		case RED:
@@ -65,7 +68,10 @@ void Calculator::start()
 			std::cin >> m_location;
 			int reduce_num;
 			std::cin >> reduce_num;
-			m_shapeObject.at(m_location)->reduce(reduce_num);
+			if (reduce_num > 0 && reduce_num < 11)
+			{
+				m_shapeObject.at(m_location)->reduce(reduce_num);
+			}
 			break;
 		}
 		case DRAW:
@@ -82,10 +88,13 @@ void Calculator::start()
 			if (dup_num <= 0)
 			{
 				std::cout << "Error in duplication number, needs to be positive!\n";
+				break;
 			}
 			///////////////////////////////////////////
-			std::shared_ptr <Shape> ptr = m_shapeObject[shpe_to_dup];
-			m_shapeObject.push_back(std::make_shared<Dup>(ptr, dup_num));
+			//std::shared_ptr <Shape> ptr = m_shapeObject[shpe_to_dup];
+			//m_shapeObject.push_back(std::make_shared<Dup>(ptr, dup_num));
+			
+			m_shapeObject.push_back(std::make_shared<Dup>(m_shapeObject.at(shpe_to_dup), dup_num));
 			break;
 		}
 		case STACK:
@@ -94,9 +103,10 @@ void Calculator::start()
 			std::cin >> shape1;
 			std::cin >> shape2;
 			///////////////////////////////////////////
-			std::shared_ptr <Shape> ptr1 = m_shapeObject[shape1];
-			std::shared_ptr <Shape> ptr2 = m_shapeObject[shape2];
-			m_shapeObject.push_back(std::make_shared<Stack>(ptr1, ptr2));
+			//std::shared_ptr <Shape> ptr1 = m_shapeObject[shape1];
+			//std::shared_ptr <Shape> ptr2 = m_shapeObject[shape2];
+			//m_shapeObject.push_back(std::make_shared<Stack>(ptr1, ptr2));
+			m_shapeObject.push_back(std::make_shared<Stack>(m_shapeObject.at(shape1), (m_shapeObject.at(shape2))));
 			break;
 		}
 		case DEL:

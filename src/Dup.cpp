@@ -5,13 +5,21 @@ Dup::Dup(std::shared_ptr<Shape> p2shape, int dup_times)
 	:m_shape_ptr(p2shape), m_times(dup_times)
 {
 	m_size = m_shape_ptr->getShapeSize();
+	m_factor = 1;
 }
 
 void Dup::print()
 {
 	std::cout << m_times << " * (";
-	m_shape_ptr->print();
+	printComplex(m_factor);
 	std::cout << ")";
+}
+
+void Dup::printComplex(double m_factor)
+{
+
+	m_shape_ptr->printComplex(m_factor);
+
 }
 
 void Dup::draw()
@@ -24,12 +32,14 @@ void Dup::draw()
 
 void Dup::enlarge(int num)
 {
-	m_size = m_size * num; 
+
+	m_factor = num; 
+
 }
 
 void Dup::reduce(int num)
 {
-	m_size = m_size / num;
+	m_factor = num;
 }
 
 std::string Dup::getName()
@@ -41,3 +51,4 @@ int Dup::getShapeSize()
 {
 	return m_times;
 }
+

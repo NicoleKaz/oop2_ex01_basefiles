@@ -5,15 +5,21 @@ Stack::Stack(std::shared_ptr<Shape> shared_ptr1, std::shared_ptr<Shape> shared_p
 {
 	m_size1 = m_shape_ptr1->getShapeSize();
 	m_size2 = m_shape_ptr2->getShapeSize();
+	m_factor = 1; 
 }
 
 void Stack::print()
 {
 	std::cout << "(";
-	m_shape_ptr1->print();
-	std::cout << " / ";
-	m_shape_ptr2->print();
+	printComplex(m_factor);
 	std::cout << ")";
+}
+
+void Stack::printComplex(double)
+{
+	m_shape_ptr1->printComplex(m_factor);
+	std::cout << " / ";
+	m_shape_ptr2->printComplex(m_factor);
 }
 
 void Stack::draw()
@@ -24,16 +30,12 @@ void Stack::draw()
 
 void Stack::enlarge(int num)
 {
-	m_size1 = m_size1 * num; 
-	m_size2 = m_size2 * num; 
+	m_factor =  num;
 }
 
 void Stack::reduce(int num)
 {
-	//m_shape_ptr1->reduce(num);
-	//m_shape_ptr2->reduce(num);
-	m_size1 = m_size1 / num;
-	m_size2 = m_size2 / num;
+	m_factor = num;
 }
 
 std::string Stack::getName()
@@ -45,5 +47,7 @@ int Stack::getShapeSize()
 {
 	return 0;
 }
+
+
 
 

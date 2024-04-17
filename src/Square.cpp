@@ -4,11 +4,17 @@ Square::Square(std::string, int size)
 {
     m_name = "Square";
     m_size = size;
+    m_height = 0; 
 }
 
 void Square::print()
 {
     std::cout << m_name << "(" << m_size << ")";
+}
+
+void Square::printComplex(double factor)
+{
+    std::cout << m_name << "(" << m_size * factor << ")";
 }
 
 void Square::enlarge(int enl_num)

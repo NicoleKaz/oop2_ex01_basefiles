@@ -12,6 +12,11 @@ void Rectangle::print()
     std::cout << m_name << "(w:" << m_size << "," << "h:" << m_height << ")";
 }
 
+void Rectangle::printComplex(double factor)
+{
+    std::cout << m_name << "(w: " << m_size * factor << "," << "h: " << m_height * factor << ")";
+}
+
 void Rectangle::enlarge(int enl_num)
 {
     if (enl_num > 0 && enl_num < 11)
@@ -65,7 +70,7 @@ int Rectangle::getShapeSize()
     return m_size;
 }
 
-int Rectangle::getRecH()
+int Rectangle::getShapeHeight()
 {
     return m_height;
 }
