@@ -1,7 +1,7 @@
 #include "Dup.h"
 
 // Constructor for Dup class
-Dup::Dup(std::shared_ptr<Shape> p2shape, int dup_times)
+Dup::Dup(const std::shared_ptr<Shape> p2shape, int dup_times)
 	:m_shape_ptr(p2shape), m_times(dup_times)
 {
 	m_size = m_shape_ptr->getShapeSize();
@@ -21,7 +21,7 @@ void Dup::print(double factor)
 // Draw function for Dup class
 // Inputs: Factor to scale the duplication (factor)
 // Actions: Draws the duplicated shape the specified number of times
-void Dup::draw(double factor)
+const void Dup::draw(double factor)
 {
 	for (int i = 0; i < m_times; i++)
 	{

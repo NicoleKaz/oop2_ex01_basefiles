@@ -8,7 +8,7 @@ public:
 	Stack(std::shared_ptr<Shape>, std::shared_ptr<Shape>);
 
 	void print(double);
-	void draw(double);
+	const void draw(double);
 	void enlarge(int num);
 	void reduce(int num);
 	std::string getName()const;

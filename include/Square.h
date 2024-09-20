@@ -10,7 +10,7 @@ public:
 	void print(double);
 	void enlarge(int num);
 	void reduce(int num);
-	void draw(double m_factor);
+	const void draw(double m_factor);
 	std::string getName()const;
 	double getShapeSize()const;
 	double getFactor()const;

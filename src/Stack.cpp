@@ -24,7 +24,7 @@ void Stack::print(double factor)
 // Draw function for Stack class
 // Inputs: Factor to scale the drawn shapes (factor)
 // Actions: Draws the stacked shapes with scaled dimension
-void Stack::draw(double m_factor)
+const void Stack::draw(double m_factor)
 {
 	m_shape_ptr1->draw(m_factor);
 	m_shape_ptr2->draw(m_factor);

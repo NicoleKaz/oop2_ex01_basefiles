@@ -43,7 +43,7 @@ void Rectangle::reduce(int red_num)
 // Draw function for Rectangle class
 // Inputs: Factor to scale the drawn rectangle (factor)
 // Actions: Draws the rectangle with scaled dimensions
-void Rectangle::draw(double factor)
+const void Rectangle::draw(double factor)
 {
     // Printing the top row
     for (int i = 0; i < round(m_size*factor); ++i) {

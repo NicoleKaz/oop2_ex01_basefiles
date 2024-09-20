@@ -22,8 +22,8 @@ class Calculator
 public:
 	Calculator();
 	void start();
-	void printMenu();
-	void printHelp();
+	const void printMenu();
+	const void printHelp();
 
 
 private:

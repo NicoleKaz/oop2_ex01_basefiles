@@ -8,10 +8,10 @@
 class Dup :public Shape
 {
 public:
-	Dup(std::shared_ptr<Shape>, int);
+	Dup(const std::shared_ptr<Shape>, int);
 
 	void print(double);
-	void draw(double);
+	const void draw(double);
 	void enlarge(int num);
 	void reduce(int num);
 	std::string getName()const;

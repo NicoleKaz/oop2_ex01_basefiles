@@ -168,7 +168,7 @@ void Calculator::start()
 }
 
 //This function prints the help menu
-void Calculator::printHelp()
+const void Calculator::printHelp()
 {
 
 	std::cout << "The available commands are :\n"
@@ -191,7 +191,7 @@ void Calculator::printHelp()
 }
 
 //This function prints the data about the available shapes that the user craeted  
-void Calculator::printMenu()
+const void Calculator::printMenu()
 {
 	//only when the vector is empty
 	if (m_shapeObject.empty())

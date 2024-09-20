@@ -40,7 +40,7 @@ void Square::reduce(int red_num)
 // Draw function for Square class
 // Inputs: Factor to scale the drawn square (factor)
 // Actions: Draws the square with scaled dimensions
-void Square::draw(double factor)
+const void Square::draw(double factor)
 {
     // Printing the top row
     for (int i = 0; i < round(m_size * factor); ++i) {

@@ -40,7 +40,7 @@ void Triangle::reduce(int red_num)
 // Draw function for Triangle class
 // Inputs: Factor to scale the drawn triangle (factor)
 // Actions: Draws the equilateral triangle with scaled dimensions
-void Triangle::draw(double factor)
+const void Triangle::draw(double factor)
 {
     // Printing the equilateral triangle without asterisks inside
     for (int i = 1; i <= round(m_size * factor); ++i)
